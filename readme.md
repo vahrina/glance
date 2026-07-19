@@ -16,6 +16,8 @@
 
 ![](docs/images/readme-main-image.png)
 
+> due to inactivity in the origin repo i suppose merging my own fixes/ideas instead of waiting for an update will do the trick... port was also changed 8080 -> 6060
+
 ## Features
 ### Various widgets
 * RSS feeds
@@ -278,6 +280,63 @@ Glance can also be installed through the following 3rd party channels:
 
 <br>
 
+## Building from source
+
+Choose one of the following methods:
+
+<details>
+<summary><strong>Build binary with Go</strong></summary>
+<br>
+
+Requirements: [Go](https://go.dev/dl/) >= v1.23
+
+To build the project for your current OS and architecture, run:
+
+```bash
+go build -o build/glance .
+```
+
+To build for a specific OS and architecture, run:
+
+```bash
+GOOS=linux GOARCH=amd64 go build -o build/glance .
+```
+
+[*click here for a full list of GOOS and GOARCH combinations*](https://go.dev/doc/install/source#:~:text=$GOOS%20and%20$GOARCH)
+
+Alternatively, if you just want to run the app without creating a binary, like when you're testing out changes, you can run:
+
+```bash
+go run .
+```
+<hr>
+</details>
+
+<details>
+<summary><strong>Build project and Docker image with Docker</strong></summary>
+<br>
+
+Requirements: [Docker](https://docs.docker.com/engine/install/)
+
+To build the project and image using just Docker, run:
+
+*(replace `owner` with your name or organization)*
+
+```bash
+docker build -t owner/glance:latest .
+```
+
+If you wish to push the image to a registry (by default Docker Hub), run:
+
+```bash
+docker push owner/glance:latest
+```
+
+<hr>
+</details>
+
+<br>
+
 ## Common issues
 <details>
 <summary><strong>Requests timing out</strong></summary>
@@ -346,103 +405,3 @@ Yes, the title of all widgets can be changed by specifying the `title` property 
 # and so on for all widgets...
 ```
 </details>
-
-<br>
-
-## Feature requests
-
-New feature suggestions are always welcome and will be considered, though please keep in mind that some of them may be out of scope for what the project is trying to achieve (or is reasonably capable of). If you have an idea for a new feature and would like to share it, you can do so [here](https://github.com/glanceapp/glance/issues/new?template=feature_request.yml).
-
-Feature requests are tagged with one of the following:
-
-* [Roadmap](https://github.com/glanceapp/glance/labels/roadmap) - will be implemented in a future release
-* [Backlog](https://github.com/glanceapp/glance/labels/backlog) - may be implemented in the future but needs further feedback or interest from the community
-* [Icebox](https://github.com/glanceapp/glance/labels/icebox) - no plans to implement as it doesn't currently align with the project's goals or capabilities, may be revised at a later date
-
-<br>
-
-## Building from source
-
-Choose one of the following methods:
-
-<details>
-<summary><strong>Build binary with Go</strong></summary>
-<br>
-
-Requirements: [Go](https://go.dev/dl/) >= v1.23
-
-To build the project for your current OS and architecture, run:
-
-```bash
-go build -o build/glance .
-```
-
-To build for a specific OS and architecture, run:
-
-```bash
-GOOS=linux GOARCH=amd64 go build -o build/glance .
-```
-
-[*click here for a full list of GOOS and GOARCH combinations*](https://go.dev/doc/install/source#:~:text=$GOOS%20and%20$GOARCH)
-
-Alternatively, if you just want to run the app without creating a binary, like when you're testing out changes, you can run:
-
-```bash
-go run .
-```
-<hr>
-</details>
-
-<details>
-<summary><strong>Build project and Docker image with Docker</strong></summary>
-<br>
-
-Requirements: [Docker](https://docs.docker.com/engine/install/)
-
-To build the project and image using just Docker, run:
-
-*(replace `owner` with your name or organization)*
-
-```bash
-docker build -t owner/glance:latest .
-```
-
-If you wish to push the image to a registry (by default Docker Hub), run:
-
-```bash
-docker push owner/glance:latest
-```
-
-<hr>
-</details>
-
-<br>
-
-## Contributing guidelines
-
-* Before working on a new feature it's preferable to submit a feature request first and state that you'd like to implement it yourself
-* Please don't submit PRs for feature requests that are either in the roadmap<sup>[1]</sup>, backlog<sup>[2]</sup> or icebox<sup>[3]</sup>
-* Use `dev` for the base branch if you're adding new features or fixing bugs, otherwise use `main`
-* Avoid introducing new dependencies
-* Avoid making backwards-incompatible configuration changes
-* Avoid introducing new colors or hard-coding colors, use the standard `primary`, `positive` and `negative`
-* For icons, try to use [heroicons](https://heroicons.com/) where applicable
-* Provide a screenshot of the changes if UI related where possible
-* No `package.json`
-
-<details>
-<summary><strong><sup>[1] [2] [3]</sup></strong></summary>
-
-[1] The feature likely already has work put into it that may conflict with your implementation
-
-[2] The demand, implementation or functionality for this feature is not yet clear
-
-[3] No plans to add this feature for the time being
-
-</details>
-
-<br>
-
-## Thank you
-
-To all the people who were generous enough to [sponsor](https://github.com/sponsors/glanceapp) the project and to everyone who has contributed in any way, be it PRs, submitting issues, helping others in the discussions or Discord server, creating guides and tools or just mentioning Glance on social media. Your support is greatly appreciated and helps keep the project going.
