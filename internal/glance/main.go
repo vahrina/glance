@@ -254,7 +254,7 @@ func serveUpdateNoticeIfConfigLocationNotMigrated(configPath string) bool {
 	})
 
 	server := http.Server{
-		Addr:    ":8080",
+		Addr:    ":6060",
 		Handler: mux,
 	}
 	server.ListenAndServe()

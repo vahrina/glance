@@ -288,7 +288,7 @@ Server configuration is done through a top level `server` property. Example:
 
 ```yaml
 server:
-  port: 8080
+  port: 6060
   assets-path: /home/user/glance-assets
 ```
 
@@ -297,7 +297,7 @@ server:
 | Name | Type | Required | Default |
 | ---- | ---- | -------- | ------- |
 | host | string | no |  |
-| port | number | no | 8080 |
+| port | number | no | 6060 |
 | proxied | boolean | no | false |
 | base-url | string | no | |
 | assets-path | string | no |  |
@@ -567,7 +567,7 @@ pages:
 The name of the page which gets shown in the navigation bar.
 
 #### `slug`
-The URL friendly version of the title which is used to access the page. For example if the title of the page is "RSS Feeds" you can make the page accessible via `localhost:8080/feeds` by setting the slug to `feeds`. If not defined, it will automatically be generated from the title.
+The URL friendly version of the title which is used to access the page. For example if the title of the page is "RSS Feeds" you can make the page accessible via `localhost:6060/feeds` by setting the slug to `feeds`. If not defined, it will automatically be generated from the title.
 
 #### `width`
 The maximum width of the page on desktop. Possible values are `default`, `slim` and `wide`.
@@ -1145,7 +1145,7 @@ https://your.proxy/?url={REQUEST-URL}
 A custom HTTP/HTTPS proxy URL that will be used to fetch the data. This is useful when you're hosting Glance on a VPS where Reddit is blocking the requests and you want to bypass the restriction by routing the requests through a proxy. Example:
 
 ```yaml
-proxy: http://user:pass@proxy.com:8080
+proxy: http://user:pass@proxy.com:6060
 proxy: https://user:pass@proxy.com:443
 ```
 
@@ -1153,7 +1153,7 @@ Alternatively, you can specify the proxy URL as well as additional options by us
 
 ```yaml
 proxy:
-  url: http://proxy.com:8080
+  url: http://proxy.com:6060
   allow-insecure: true
   timeout: 10s
 ```

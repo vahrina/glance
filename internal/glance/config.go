@@ -98,7 +98,7 @@ func newConfigFromYAML(contents []byte) (*config, error) {
 	}
 
 	config := &config{}
-	config.Server.Port = 8080
+	config.Server.Port = 6060
 
 	err = yaml.Unmarshal(contents, config)
 	if err != nil {
