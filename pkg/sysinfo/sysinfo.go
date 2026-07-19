@@ -44,6 +44,7 @@ type SystemInfo struct {
 	CPU struct {
 		LoadIsAvailable bool  `json:"load_is_available"`
 		Load1Percent    uint8 `json:"load1_percent"`
+		Load5Percent    uint8 `json:load5_percent`
 		Load15Percent   uint8 `json:"load15_percent"`
 
 		TemperatureIsAvailable bool  `json:"temperature_is_available"`
@@ -166,9 +167,11 @@ func Collect(req *SystemInfoRequest) (*SystemInfo, []error) {
 				// with no clear pattern. Dividing by core count gives numbers that are way too
 				// low so that's likely not necessary as it is with unix.
 				info.CPU.Load1Percent = uint8(math.Min(loadAvg.Load1*100, 100))
+				info.CPU.Load5Percent = uint8(math.Min(loadAvg.Load5*100, 100))
 				info.CPU.Load15Percent = uint8(math.Min(loadAvg.Load15*100, 100))
 			} else {
 				info.CPU.Load1Percent = uint8(math.Min((loadAvg.Load1/float64(coreCount))*100, 100))
+				info.CPU.Load5Percent = uint8(math.Min((loadAvg.Load5/float64(coreCount))*100, 100))
 				info.CPU.Load15Percent = uint8(math.Min((loadAvg.Load15/float64(coreCount))*100, 100))
 			}
 		} else {

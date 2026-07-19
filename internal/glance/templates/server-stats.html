@@ -45,6 +45,11 @@
                         <div class="value-separator"></div>
                         <div class="color-highlight text-very-compact">{{ .Info.CPU.Load1Percent }} <span class="color-base size-h5">%</span></div>
                     </div>
+                    <div class="flex">
+                        <div class="size-h5">5M AVG</div>
+                        <div class="value-separator"></div>
+                        <div class="color-highlight text-very-compact">{{ .Info.CPU.Load5Percent }} <span class="color-base size-h5">%</span></div>
+                    </div>
                     <div class="flex margin-top-3">
                         <div class="size-h5">15M AVG</div>
                         <div class="value-separator"></div>
@@ -62,6 +67,7 @@
                 <div class="progress-bar progress-bar-combined">
                     {{- if .Info.CPU.LoadIsAvailable }}
                     <div class="progress-value{{ if ge .Info.CPU.Load1Percent 85 }} progress-value-notice{{ end }}" style="--percent: {{ .Info.CPU.Load1Percent }}"></div>
+                    <div class="progress-value{{ if ge .Info.CPU.Load5Percent 85 }} progress-value-notice{{ end }}" style="--percent: {{ .Info.CPU.Load1Percent }}"></div>
                     <div class="progress-value{{ if ge .Info.CPU.Load15Percent 85 }} progress-value-notice{{ end }}" style="--percent: {{ .Info.CPU.Load15Percent }}"></div>
                     {{- end }}
                 </div>
